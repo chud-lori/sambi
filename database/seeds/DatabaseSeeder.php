@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Category::class,10)->create();
+        // factory(\App\Category::class,10)->create();
+        $this->call([
+            CategorySeeder::class,
+            BookSeeder::class,
+            MemberSeeder::class,
+            UserSeeder::class,
+        ]);
     }
 }

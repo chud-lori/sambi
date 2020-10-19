@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
 {
@@ -13,11 +13,10 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for($i=0; $i<10; $i++)
-        { 
-            DB::table('categories')->insert([ 
-                'kategori' => $faker->name, 
-                'nomor_kategori'=> $faker->unique()->randomDigit(10)
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('categories')->insert([
+                'kategori'       => $faker->name,
+                'nomor_kategori' => $faker->unique()->randomDigit(10),
             ]);
         }
     }
