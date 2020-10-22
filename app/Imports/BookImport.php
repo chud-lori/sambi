@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Book;
+use App\Category;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class BookImport implements ToModel
@@ -25,10 +26,10 @@ class BookImport implements ToModel
             'kelas'          => $row[8],
             'asal'           => $row[9],
             'harga'          => $row[10],
-            'callnumber'     => $row[11],
             'isbn'           => $row[12],
-            'deskripsi'      => $row[13],
-            'categories_id'  => $row[14],
+            'callnumber'     => $row[13],
+            'deskripsi'      => $row[11],
+            'categories_id'  => Category::where('kategori', 'like', $row[14])->exists() ? Category::where('kategori', 'like', $row[14])->first()->id : 1,
         ]);
     }
 }
