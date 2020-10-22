@@ -51,6 +51,11 @@ Route::get('transactionDenda', 'TransactionController@transactionDenda');
 //DENDA
 Route::get('denda/{id}', 'TransactionController@denda');
 Route::PUT('bayarDenda/{id}', 'TransactionController@bayarDenda');
+
+//IMPORT
+Route::post('/member/import_excel', 'MemberController@import');
+Route::post('/book/import_excel', 'BookController@import');
+
 //CARD
 Route::resource('card', 'CardController');
 
